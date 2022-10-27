@@ -6,10 +6,13 @@
 			<img src="<%=booking.screening_id.movie.img%>">
 		</div>
 		<div class="col-md-9">
-			Name:<p><%=booking.username%></p>
-			Email:<span><%=booking.email%></span>
-			Seats:<span><%=booking.seats%>
-			Timing:<span><%=booking.screening_id.screening_start%></span>
+			<h3>Name : <span><%=booking.username%></span></h5>
+			<h3>Email : <span><%=booking.email%></span></h5>
+			<h3>Contact : <span><%=booking.contact%></span></h5>
+			<h3>Movie : <span><%=booking.screening_id.movie.name%></span></h5>
+			<h3>Auditorium : <span><%=booking.screening_id.audi_id%></span></h5>
+			<h3>Seats : <span><%=booking.seats%></h5>
+			<h3>Timing : <span><%=booking.screening_id.screening_start%>:00 hours</span></h5>
 		</div>
 		<%});%>
 	</div>

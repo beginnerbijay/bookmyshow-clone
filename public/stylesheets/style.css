@@ -76,6 +76,10 @@ a {
 .vertical-top {
     vertical-align: top;
 }
+.navbar-nav>li>a {
+    line-height: 28px;
+    font-size: 16px;
+}
 nav.vertical ul li {
     display: block;
 }

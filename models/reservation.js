@@ -1,11 +1,13 @@
+
 const mongoose=require("mongoose");
+const screening = require("./screening");
 
 var reservationSchema=new mongoose.Schema(
 {
-	screening_id :
+	screening_id:
 	{
 			type: mongoose.Schema.Types.ObjectId,
-			ref: "screening"
+			ref : "screening"
 		
 	},
 	username: String,

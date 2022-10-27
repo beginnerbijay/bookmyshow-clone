@@ -7,10 +7,10 @@ var express=require("express"),
 
 
 
-router.get("/profile",function(req,res)
+router.get("/profile/:username",function(req,res)
 {
-	console.log(req.user.username);
-	reservation.find({username:req.user.username}).populate("screening_id").exec(function(err,bookings)
+	console.log(req.params.username);
+	reservation.find({username:req.params.username}).populate("screening_id").exec(function(err,bookings)
 	{
 		if(err)
 		{
@@ -25,16 +25,25 @@ router.get("/profile",function(req,res)
 		}
 		
 	})
-	// reservation.findById(reservation_id).populate("screening_id").exec(function(err,reservation)
-	// 		{
-	// 			if(err)
-	// 				console.log(err);
-	// 			else
-	// 			{
-	// 				console.log(reservation);
-	// 				res.render("booking/finalTicket",{reservation});
-	// 			}
-	// 		})
+})
+router.post("/profile/:username",function(req,res)
+{
+	console.log(req.params.username);
+	reservation.find({username:req.params.username}).populate("screening_id").exec(function(err,bookings)
+	{
+		if(err)
+		{
+
+			req.flash("error","No Reservations Found!!")
+			res.render("profile");
+			console.log(err);
+		}
+		else
+		{
+				res.render("profile",{bookings:bookings});
+		}
+		
+	})
 })
 
 

@@ -11,7 +11,7 @@
           <link rel="stylesheet" href="/stylesheets/main.css">
      </head>
      <style>
-               input[type="text"]{
+               input[type="text"],input[type="number"],input[type="date"],textarea{
                     margin-top: 5px;
                     height: 40px;
                     margin-left: 20px;
@@ -33,22 +33,21 @@
           </div>   
           <div class="collapse navbar-collapse" id="myNavbar">
                <ul class="nav navbar-left navbar-nav">
-                    <li><a class="navbar-brand" href="/"><i class="icomoon icon-film"></i></a></li>
-                    <li> <a href="/index">Book Movies</a></li>
+                    <li> <a href="/index" >Book Movies</a></li>
                </ul>
                <ul class="nav navbar-right navbar-nav">
                     <% if(!admin){%>
                    <li><a href="/admin/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                   <li><a href="/admin/signup"><span class="glyphicon glyphicon-user"> SignUp</a></li>
+                   <li><a href="/admin/signup"><span class="glyphicon glyphicon-user">SignUp</a></li>
                     <% }else if(admin.isAdmin){%>
-                    <li><a href="/profile">Welcome Admin</a></li>
+                    <li><a href="/profile/<%=admin.username%>">Welcome Admin</a></li>
                     <li><a href="/screening">Screening Movies <span class="glyphicon glyphicon-shopping-cart"></span></a></li>
                     <li><a href="/movie">Manage Movies <span class="glyphicon glyphicon-shopping-cart"></span></a></li>
                     <li><a href="/screening/new">Manage Screens<span class="glyphicon glyphicon-leaf"></span></a></li>
                     <li><a href="/admin/logout">Logout</a></li>
                     <%}else{%>
-                    <li><a href="/profile">Welcome <%=admin.username%></a></li>
-                    <li><a href="/profile">Profile <span class="glyphicon glyphicon-shopping-cart"></span></a></li>
+                    <li><a href="/profile/<%=admin.username%>">Welcome <%=admin.username%></a></li>
+                    <li><a href="/profile/<%=admin.username%>">Profile <span class="glyphicon glyphicon-shopping-cart"></span></a></li>
                     <li><a href="/admin/logout">Logout</a></li>
                     <%};%>
                </ul>  

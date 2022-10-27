@@ -1,5 +1,5 @@
 
-var mongoose=require("mongoose");
+var mongoose = require("mongoose");
 var movieSchema=new mongoose.Schema(
 {
 	name: String,
@@ -7,13 +7,12 @@ var movieSchema=new mongoose.Schema(
 	ratings: String,
 	director: String,
 	summary: String,
-	release: Number,
+	release: Date,
 	duration: Number,
 	screening: {
 		type: Number,
 		default: 1
 	}
-	
 });
 
 

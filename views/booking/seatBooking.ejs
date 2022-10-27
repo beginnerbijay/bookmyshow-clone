@@ -19,51 +19,39 @@
           
      </head>
      <nav class="navbar navbar-inverse" >
-     <div class="container-fluid">
-          <div class="navbar-header">
-             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                 <span class="icon-bar"></span>
-                 <span class="icon-bar"></span>
-                 <span class="icon-bar"></span> 
-               </button>
-               <a class="navbar-brand" href="/index">MBook</a>
-                          
-          </div>
-          <div class="collapse navbar-collapse" id="myNavbar">
-
-               <ul class="nav navbar-left navbar-nav">
-                         <li><a class="navbar-brand" href="/"><i class="icomoon icon-film"></i></a></li>
-                    <li> <a href="/index">Movies</a></li>
-               </ul>
-
-               <ul class="nav navbar-right navbar-nav">
-                <% if(!admin){%>
-                  <li><a href="/admin/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                   <li><a href="/admin/signup"><span class="glyphicon glyphicon-user"> SignUp</a></li>
-
-                        
-                   <% }else if(admin.isAdmin){%>
-                    <li><a href="/screening">Screening Movies <span class="glyphicon glyphicon-shopping-cart"></span></a></li>
-                    <li><a href="/movie">Manage Movies <span class="glyphicon glyphicon-shopping-cart"></span></a></li>
-                    <li><a href="/screening/new">Manage Screens<span class="glyphicon glyphicon-leaf"></span></a></li>
-                    <li><a href="/admin/logout">Logout</a></li>
-
-                   <%}else{%>
-                    <li><a href="/profile/<%=admin._id%>">Welcome <%=admin.username%></a></li>
-                    <li><a href="/profile/<%=admin._id%>44e">Profile <span class="glyphicon glyphicon-shopping-cart"></span></a></li>
-                   
-                    <li><a href="/admin/logout">Logout</a></li>
-
-                   <%};%>
-                    
-                  </ul>  
-               </div>
-               
-          </div>
-    
-</nav>
+        <div class="container-fluid">
+        <div class="navbar-header">
+                   <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                     <span class="icon-bar"></span>
+                     <span class="icon-bar"></span>
+                     <span class="icon-bar"></span> 
+                   </button>
+                   <a class="navbar-brand" href="/index">BookMyShow</a>
+        </div>   
+        <div class="collapse navbar-collapse" id="myNavbar">
+             <ul class="nav navbar-left navbar-nav">
+                  <li> <a href="/index" >Book Movies</a></li>
+             </ul>
+             <ul class="nav navbar-right navbar-nav">
+                  <% if(!admin){%>
+                 <li><a href="/admin/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                 <li><a href="/admin/signup"><span class="glyphicon glyphicon-user">SignUp</a></li>
+                  <% }else if(admin.isAdmin){%>
+                  <li><a href="/profile">Welcome Admin</a></li>
+                  <li><a href="/screening">Screening Movies <span class="glyphicon glyphicon-shopping-cart"></span></a></li>
+                  <li><a href="/movie">Manage Movies <span class="glyphicon glyphicon-shopping-cart"></span></a></li>
+                  <li><a href="/screening/new">Manage Screens<span class="glyphicon glyphicon-leaf"></span></a></li>
+                  <li><a href="/admin/logout">Logout</a></li>
+                  <%}else{%>
+                  <li><a href="/profile">Welcome <%=admin.username%></a></li>
+                  <li><a href="/profile">Profile <span class="glyphicon glyphicon-shopping-cart"></span></a></li>
+                  <li><a href="/admin/logout">Logout</a></li>
+                  <%};%>
+             </ul>  
+        </div>
+   </div>
+    </nav>
 <body onload="onLoaderFunc()">
-  <h1>Movie Seat Selection</h1>
           <div class="container">
     <div class="w3ls-reg">
       <div class="row" >
@@ -86,7 +74,7 @@
                   </div>
 
             <div class="col-md-7">
-            <form method="POST" action="/paynow">
+            <form method="POST" action="/paynow/<%=screen._id%>">
                 <div class="form-group">
                     <label>Username:</label> <input type="text" value="<%=admin.username%>"name="username" placeholder="Username" required="true">
                 </div>
@@ -172,7 +160,7 @@
     <script>
         function money(){
             var Numseats=$("#Numseats").val();
-            var amt=Numseats*200;
+            var amt=Numseats*1;
             document.querySelector("#amount").value=amt;
 
         }

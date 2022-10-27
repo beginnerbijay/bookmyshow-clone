@@ -1,8 +1,7 @@
 <% include ../header  %>
 <div class="container">
 	<div class="jumbotron">
-		<h1>Welcome to BookmyShow page</h1>
-		<h2>Add the screens to the below movies</h2>
+		<h1>Movies Screening</h1>
 	</div>
 	<form method="POST" action="/screening/new" style="text-align: center;">
 	Choose Movie: 
@@ -11,7 +10,7 @@
 		  <option><%=movies[i].name%></option>
 		<%};%>
 	</select><br>
-	<h1 style="color: white;">Choose Audi and time slot:</h1>
+	<h1 style="color: white;">Choose Auditorium And Time Slot:</h1>
 		<% for(var i=0;i<audi.length;i++){%>
 		  <h2 style="color:#fff;"><%=audi[i].name%></h2><br>
 		<%for(var j=0;j<audi[i].showTimes.length;j++){ if(audi[i].showTimes[j].available==true){%>

@@ -4,7 +4,7 @@ var screeningSchema=new mongoose.Schema(
 {
 	
 	movie: {
-			type:Object
+		type:Object
 			},
 	
 	screening_start: Number,
