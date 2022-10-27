@@ -20,7 +20,7 @@ app.use(helmet());
 app.use(express.static("public"));
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
-mongoose.connect(process.env.Mongodb_url , { useNewUrlParser: true, useUnifiedTopology: true }).then(()=>{console.log("db connected")});
+mongoose.connect(process.env.Mongodb_url , { useNewUrlParser: true, useUnifiedTopology: true }).then(()=>{console.log("db connected")}).catch(()=>{console.log("db disconnected")});
 app.use(methodOverride("_method"));
 app.use(flash());
 seed();
