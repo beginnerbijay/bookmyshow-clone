@@ -15,12 +15,12 @@ const config = require("./Paytm/config"),
 	screening = require("./models/screening"),
 	reservation = require("./models/reservation"),
 	seed = require("./seed");
+require('dotenv').config()
 app.use(helmet());
 app.use(express.static("public"));
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
-mongoose.connect("mongodb://localhost:27017/bookmyshow", { useNewUrlParser: true, useUnifiedTopology: true });
-console.log("connected to DB");
+mongoose.connect(process.env.Mongodb_url , { useNewUrlParser: true, useUnifiedTopology: true }).then(()=>{console.log("db connected")});
 app.use(methodOverride("_method"));
 app.use(flash());
 seed();
