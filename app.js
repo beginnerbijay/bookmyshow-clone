@@ -82,7 +82,7 @@ app.post("/paynow/:id", (req, res) => {
 						params['ORDER_ID'] = 'TEST_'  + new Date().getTime();
 						params['CUST_ID'] = name;
 						params['TXN_AMOUNT'] = amount;
-						params['CALLBACK_URL'] = `http://localhost:3000/profile/${name}`;
+						params['CALLBACK_URL'] = `https://bookmyshow-clone.onrender.com/profile/${name}`;
 						params['EMAIL'] = newReservation.email;
 						params['MOBILE_NO'] = newReservation.contact;
 					
