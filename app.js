@@ -120,7 +120,7 @@ var bookingRoutes = require("./routes/booking");
 var authenticationRoutes = require("./routes/authentication");
 var search = require("./routes/check");
 var profile = require("./routes/profile");
-app.use(require("cookie-session")(
+app.use(require("express-session")(
 	{
 		secret: "hello world",
 		resave: false,
