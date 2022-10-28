@@ -124,9 +124,9 @@ app.enable('trust proxy');
 app.use(require("cookie-session")(
 	{
 		secret: "hello world",
-		resave: false,
+		resave: true,
 		proxy: true,
-		saveUninitialized: false
+		saveUninitialized: true
 
 	}
 ));
