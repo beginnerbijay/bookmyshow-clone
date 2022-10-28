@@ -120,10 +120,12 @@ var bookingRoutes = require("./routes/booking");
 var authenticationRoutes = require("./routes/authentication");
 var search = require("./routes/check");
 var profile = require("./routes/profile");
+app.enable('trust proxy');
 app.use(require("cookie-session")(
 	{
 		secret: "hello world",
 		resave: false,
+		proxy: true,
 		saveUninitialized: false
 
 	}
